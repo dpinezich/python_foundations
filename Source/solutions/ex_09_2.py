@@ -3,8 +3,8 @@ def calculate_mark(points, max_points):
     return round(mark * 2) * 0.5
 
 while True:
-    name = input('Name: ')
-    if name == 'exit':
+    exit = input('exit?: ')
+    if exit == 'yes':
         break
     points = input('Points: ')
     max_points = input('Max Points: ')
