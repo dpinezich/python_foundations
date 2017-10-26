@@ -2,14 +2,14 @@
 
 # Import required classes
 import json
-from urllib import quote
-import urllib2
+import urllib.request
+import urllib.parse
 import datetime
 
-request = raw_input('gewünschte Station eingeben: ')
+request = input('gewünschte Station eingeben: ')
 
 # Get the json file from the API
-raw_answer = urllib2.urlopen('http://transport.opendata.ch/v1/stationboard?station=' + quote(request) + '&limit=10')
+raw_answer = urllib.request.urlopen('http://transport.opendata.ch/v1/stationboard?station=' + urllib.parse.quote(request, safe='') + '&limit=10')
 
 # Parse the json
 answer = json.load(raw_answer)

@@ -2,17 +2,17 @@
 
 # Import required classes
 import json
-from urllib import quote
-import urllib2
+import urllib.request
+import urllib.parse
 import datetime
 
 API_KEY = 'f9a00520ec2beacdec7f69bf6a20d085'
 
-request = raw_input('Filmtitel eingeben: ')
+request = input('Filmtitel eingeben: ')
 
 # Get the json file from the API
-url = 'http://api.themoviedb.org/3/search/movie?api_key=' + API_KEY + '&query=' + quote(request)
-raw_answer = urllib2.urlopen(url)
+url = 'http://api.themoviedb.org/3/search/movie?api_key=' + API_KEY + '&query=' + urllib.parse.quote(request, safe='')
+raw_answer = urllib.request.urlopen(url)
 
 # Parse the json
 answer = json.load(raw_answer)
@@ -31,11 +31,11 @@ for movie in results:
 print('')
 
 # Request details
-index = int(raw_input('Index des Films für Details: '))
+index = int(input('Index des Films für Details: '))
 
 # Get the json file from the API
 url = 'http://api.themoviedb.org/3/movie/' + str(results[index]['id']) + '?api_key=' + API_KEY
-raw_details = urllib2.urlopen(url)
+raw_details = urllib.request.urlopen(url)
 
 # Parse the json
 details = json.load(raw_details)
