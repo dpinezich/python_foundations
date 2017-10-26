@@ -6,6 +6,6 @@ def print_reverse(text):
         word.append(text[counter])
         counter -= 1
     sign = ''
-    print sign.join(word)
+    print (sign.join(word))
 string = input('String: ')
 print_reverse(string)
