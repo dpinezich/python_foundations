@@ -1,4 +1,5 @@
 # coding=utf-8
+# python 3
 
 # Import required classes
 import json
@@ -31,7 +32,7 @@ for movie in results:
 print('')
 
 # Request details
-index = int(input('Index des Films für Details: '))
+index = int(input('Index of the film for details: '))
 
 # Get the json file from the API
 url = 'http://api.themoviedb.org/3/movie/' + str(results[index]['id']) + '?api_key=' + API_KEY
